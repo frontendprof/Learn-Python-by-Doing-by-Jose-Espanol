@@ -4,13 +4,20 @@
 
 def func():
     while True:
-        user_inp = int(input("WHat is your number? \n"))
-        print(" {} is {}".format(user_inp, "even" if user_inp % 2 == 0 else "odd"))
+        try:
+            user_inp = int(input("WHat is your number? \n"))
 
-        inp = input("You want to play again? \n")
-        if inp != "y":
-            print("Goodbye")
-            break
+        except ValueError:
+            print("Please enter integers only. :) ")
+
+        else:
+            print(" {} is {}".format(user_inp, "even" if user_inp % 2 == 0 else "odd"))
+
+        finally:
+            inp = input("You want to play again? \n")
+            if inp != "y":
+                print("Goodbye")
+                break
 
 
 func()
