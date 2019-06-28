@@ -29,5 +29,5 @@ for line in csv_file.readlines():
 csv_file.close()
 
 json_file = open("json_file.txt", 'w')
-json_file.load(json_list, json_file)
+json_file.dump(json_list, json_file)
 json_file.close()
