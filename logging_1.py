@@ -21,11 +21,16 @@ CRITICAL
 import logging
 #logging.basicConfig(level=logging.DEBUG) #Configuring it to be reflected
 #logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s') #Configuring time elements too
-logging.basicConfig(format='%(asctime)s %(levelname)-16s [%(filename)s:%(lineno)d] %(message)s') #Configuring extra configs
+logging.basicConfig(format='%(asctime)s %(levelname)-16s [%(filename)s:%(lineno)d] %(message)s',
+                    level=logging.DEBUG,
+                    datefmt='%m-%d-%Y %H:%M',
+                    filename='logs.txt')#Configuring extra configs
 
 logger=logging.getLogger('test_logger')
 
 logger.info("This will not show up in ordinary scenario")
 logger.warning("This will  show up all the time")
 logger.critical("YOur critical message")
+
+
 
