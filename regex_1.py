@@ -8,6 +8,7 @@ Coding Problem on Regular expressions:
 In order to work with regular expressions or we can say regex too,
 we have to import its module which is called re
 Specifically we use findall method of regex library
+findall returns a list containing all matches
 
 """
 
