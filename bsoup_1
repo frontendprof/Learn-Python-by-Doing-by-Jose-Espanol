@@ -1,0 +1,77 @@
+# B_R_R
+# M_S_A_W
+
+
+"""
+Basic web Scraping Concepts with Beautiful Soup 4
+
+"""
+
+from bs4 import BeautifulSoup
+
+simple_html= """
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<h1> Welcome, welcome</h1>
+<h2>An Unordered HTML List</h2>
+
+<p class='subtitle'>Lorem ipsum, some random text over here for reflection and comparison reasons certainly.</p>
+<p>One more paragraph, however no class in it, pay attention guys please.</p>
+
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>  
+
+<h2>An Ordered HTML List</h2>
+
+<ol>
+  <li>Bread</li>
+  <li>Soda</li>
+  <li>Juice</li>
+</ol> 
+
+</body>
+</html>
+"""
+
+simple_soup=BeautifulSoup(simple_html,'html.parser')
+
+def find_h1():
+
+    h1_tag=simple_soup.find('h1')
+    print(h1_tag)
+    print(h1_tag.string)
+
+
+def find_list_items():
+
+    list_items=simple_soup.find_all('li')
+    list_contents=[i.string for i in list_items]
+    print(list_items)
+    print(list_contents)
+
+
+def find_subtitle():
+    paragraph_sub=simple_soup.find('p',{'class':'subtitle'})
+    print(paragraph_sub.string)
+
+
+def find_oterh_paragraph():
+    paragraphs=simple_soup.find_all("p")
+    other_paragraph=[p for p in paragraphs if 'subtitle' not in p.attrs.get('class', [])]
+    print(other_paragraph[0].string)
+
+
+
+find_h1()
+print("\n\n\n")
+find_list_items()
+print("\n\n\n")
+find_subtitle()
+print("\n\n\n")
+find_oterh_paragraph()
